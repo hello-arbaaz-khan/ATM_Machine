@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM Machine 🏧</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+        integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <div id="receipt" class="receipt" style="display:none;">
+            <div class="check_circle">
+                <span class="checkmark">✔</span>
+            </div>
+            <h3>🧾 Transaction Receipt</h3>
+            <p id="receiptAmount" style="margin: 7px;"></p>
+            <p id="receiptBalance" style="margin: 5px;"></p>
+            <p><small>Thank you for using our ATM.</small></p>
+            <p id="receiptDate" class="receipt-date"></p>
+            <div class="receipt-actions">
+                <button id="downloadBtn">Download</button>
+                <button onclick="shareReceipt()">Share</button>
+                <button onclick="exitReceipt()">Exit</button>
+            </div>
+        </div>
+        <h1>ATM Machine 🏧</h1>
+        <div id="login" class="login">
+            <input type="password" id="pinInput" placeholder="Enter PIN">
+            <button class="loginbtn" onclick="login()">Login</button>
+            <p id="loginStatus"></p>
+        </div>
+        <div id="atm" class="atm" style="display:none;">
+            <p>Balance: $<span id="balance">1000</span></p>
+            <input type="number" id="inputamount" placeholder="Enter amount" min="500" step="500"
+                oninput="showEnteredAmount()" required>
+            <br>
+            <div class="btn">
+                <button class="atm_btn" id="withdraw_btn" onclick="withdraw()">Withdraw</button>
+                <button class="atm_btn" id="deposit_btn" onclick="deposit()">Deposit</button>
+                <button class="atm_btn" id="check_btn" onclick="checkBalance()">Check Balance</button>
+                <button class="atm_btn" id="exit_btn" onclick="exit()">Exit</button>
+            </div>
+            <br>
+            <p id="messeg"></p>
+        </div>
+
+        <audio id="SuccessSound" src="./sounds/notification-18-270129.mp3" preload="auto"></audio>
+        <audio id="errorSound" src="./sounds/WhatsApp Audio .mp3"></audio>
+    </div>
+    </div>
+
+    <script src="code.js"></script>
+</body>
+
+</html>

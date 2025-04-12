@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.container {
+    width: 100%;
+    text-align: center;
+    max-width: 400px;
+    padding: 20px;
+    background-image: linear-gradient(to right, #feea0d, #07f1ce, #ec0da5);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+.login {
+    margin-top: 30px;
+}
+.loginbtn {
+    padding: 10px;
+    margin-left: 20px;
+}
+button:hover {
+    cursor: pointer;
+}
+input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid #ccc;
+}
+button {
+    position: relative;
+    display: inline-block;
+    color: #333;
+    text-decoration: none;
+    z-index: 1;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 36px;
+    width: 0;
+    z-index: -1;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #feea0d, #07f1ce, #ec0da5);
+    transition: width 0.3s ease;
+}
+
+button:hover::after {
+    width: 100%;
+}
+
+button {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+.atm {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.atm p,
+input {
+    margin: 0px 0px 30px 0;
+}
+.btn {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.atm button {
+    padding: 10px;
+}
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.receipt-date {
+    font-size: 0.8rem;
+    color: #777;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.receipt {
+    display: none;
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    height: 254px;
+    width: 257px;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid #4caf50;
+    border-radius: 12px;
+    padding: 40px;
+    z-index: 10;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.thankyou {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 10px;
+    color: #555;
+}
+.check_circle {
+    position: absolute;
+    top: 27%;
+    left: 31%;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(0, 128, 0, 0.5); /* Green with opacity 0.5 */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px;
+}
+
+.checkmark {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+}
+.check_circle {
+    animation: pop-in 0.8s ease-out;
+}
+.receipt-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+.receipt-actions button {
+    padding: 6px 12px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.receipt-actions button:hover {
+    background-color: #388e3c;
+}
+
+.receipt-actions button::after {
+    display: none !important;
+    content: none !important;
+}
+
+@keyframes pop-in {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+.shake {
+    animation: shake 0.3s ease;
+}
+@media (max-width: 500px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+    input {
+        font-size: 14px;
+    }
+    .atm p {
+        font-size: 16px;
+    }
+    .btn {
+        flex-direction: column;
+    }
+    .atm button {
+        width: 100%; /* Ensure buttons are full width */
+        margin-bottom: 10px;
+    }
+    /* Apply gradient on hover for atm_btn */
+    .atm_btn:hover {
+        background-image: linear-gradient(to right, #feea0d, #07f1ce, #ec0da5);
+    }
+    .atm_btn::after {
+        background-image: linear-gradient(to right, #feea0d, #07f1ce, #ec0da5);
+    }
+}
